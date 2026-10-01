@@ -12,7 +12,7 @@ int main(int argc, char* argv[]){
 		value = atof(argv[1]); // casts string argument to float
 	} else {
 		printf("Only one argument required\n");
-		abort(); // wondering if theres a better exit method in C.
+		exit(1); // wondering if theres a better exit method in C.
 	}
 
 	int choice;

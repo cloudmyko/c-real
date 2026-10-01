@@ -27,11 +27,11 @@ int main(int argc, char* argv[]){
 
 	switch(choice){
 	case 0:
-		metric = "cm";
+		metric = "in";
 		printf("%.2f%s\n",result,metric);
 		break; // otherwise the program outputs both for some reason.
 	case 1:
-		metric = "in";
+		metric = "cm";
 		printf("%.2f%s\n",result,metric);
 		break;
 	}

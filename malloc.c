@@ -12,7 +12,7 @@ int main(void){
     int* ptr = malloc(sizeof(int));
 
     if (ptr == NULL){
-        printf("Malloc failed.\n");
+        fprintf(stderr, "Malloc failed.\n");
         exit(1);
     }
 

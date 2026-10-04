@@ -28,6 +28,7 @@ int main(void){
     head->next->data = 5;
     head->next->next = malloc(sizeof(Box));
     head->next->next->data = 29;
+    head->next->next->next = NULL; // The end of the LL.
 
     // Traversing the linked list
     print(head);

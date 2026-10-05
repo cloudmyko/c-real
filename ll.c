@@ -66,7 +66,7 @@ int main(void){
 
     
     while (engine){
-        printf("\033[NA\r\033[2K[0] isEmpty() [1] addBox() [2] print() [3] exit()\nll-options ~ "); // line rewrite
+        printf("[0] isEmpty() [1] addBox() [2] print() [3] exit()\nll-options ~ "); // line rewrite
         scanf("%d",&option);
         switch(option){
             case 0:

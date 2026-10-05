@@ -30,25 +30,25 @@ void isEmpty(Box *head){
 
 Box* addBox(Box *head){
     int new_val;
-    Box *current = head;
+    Box *current = head; //?
     printf("Input the next element in the linked list: ");
     scanf("%d", &new_val);
 
-    if (!current){
-        current = malloc(sizeof(Box));
+    if (current == NULL){ // if current is null
+        current = malloc(sizeof(Box)); // allocates it memory inits data to 0
         current->data = new_val;
-        current->next = NULL;
-        return current;
+        current->next = NULL; // the next pointer past the current box is set to null to terminate the list
+        return current; // return it so we are able to 
     } else {
         Box *temp = current;
-        while(temp!=NULL){
-            temp = temp->next;
+        while(temp->next!=NULL){ // while we aren't at the end of the list
+            temp = temp->next; // traverse through the ll
         }
 
-        temp = malloc(sizeof(Box));
-        temp->data = new_val;
-        temp->next = NULL;
-        return temp;
+        temp->next = malloc(sizeof(Box));
+        temp->next->data = new_val;
+        temp->next->next = NULL;
+        return current; // returning house keys
     }
 }
 
@@ -62,7 +62,10 @@ int main(void){
     head = addBox(head);
     print(head);
     isEmpty(head);
-    head->next = addBox(head);
+    head = addBox(head);
+    print(head);
+    isEmpty(head);
+    head = addBox(head);
     print(head);
     return 0;
 

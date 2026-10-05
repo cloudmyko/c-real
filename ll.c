@@ -14,34 +14,42 @@ void print(Box *head){
         printf("%d -> ",current->data); // -> points to
         current = current->next;
     }
-
+    
+    printf("NULL\n");
 
 }
 
 void isEmpty(Box *head){
-    if (head == NULL){
+    if (head == NULL){ // if the head is null that means there is no initial item containing data or a pointer.
         printf("The linked list is empty.\n");
     } else {
         return;
     }
 }
 
-void addBox(Box *head){
+Box* addBox(Box *head){
     int new_val;
+    Box *current = head;
     printf("Input the next element in the linked list: ");
     scanf("%d", &new_val);
 
-
+    if (!current){
+        current = malloc(sizeof(Box));
+        current->data = new_val;
+        current->next = NULL;
+        return current;
+    }
 }
 
 int main(void){
 
     // Probably the most verbose way to do this
     Box * head = NULL;
+
     isEmpty(head);
-
+    head = addBox(head);
+    print(head);
     
-
     return 0;
 
 }

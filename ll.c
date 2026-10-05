@@ -7,8 +7,8 @@ typedef struct Node{
 } Box; 
 // Box alias essentially LL is a collection of boxes that store 2 things Data and a pointer.
 
-void print(Box * head){
-    Box * current = head;
+void print(Box *head){
+    Box *current = head;
     while(current != NULL){ 
         // While we are not at the end of the linked list
         printf("%d -> ",current->data); // -> points to
@@ -18,30 +18,27 @@ void print(Box * head){
 
 }
 
+void isEmpty(Box *head){
+    if (head == NULL){
+        printf("The linked list is empty.\n");
+    } else {
+        return;
+    }
+}
+
+void addBox(Box *head){
+    int new_val;
+    printf("Input the next element in the linked list: ");
+    scanf("%d", &new_val);
+
+
+}
+
 int main(void){
 
     // Probably the most verbose way to do this
     Box * head = NULL;
-    head = malloc(sizeof(Box));
-    head->data = 10;
-    head->next = malloc(sizeof(Box));
-    head->next->data = 5;
-    head->next->next = malloc(sizeof(Box));
-    head->next->next->data = 29;
-    head->next->next->next = NULL; // The end of the LL.
-
-    // Traversing the linked list
-    print(head);
-    printf("End.\n");
-
-    // Avoiding Memory leaks dangling pointers
-    free(head->next->next);
-    head->next->next = NULL;
-    free(head->next);
-    head->next = NULL;
-    free(head);
-    head = NULL;
-
+    isEmpty(head);
 
     
 

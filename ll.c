@@ -7,43 +7,84 @@ typedef struct Node{
 } Box; 
 // Box alias essentially LL is a collection of boxes that store 2 things Data and a pointer.
 
-void print(Box * head){
-    Box * current = head;
+void print(Box *head){
+    Box *current = head;
     while(current != NULL){ 
         // While we are not at the end of the linked list
         printf("%d -> ",current->data); // -> points to
         current = current->next;
     }
+    
+    printf("NULL\n");
 
+}
 
+void isEmpty(Box *head){
+    if (head == NULL){ // if the head is null that means there is no initial item containing data or a pointer.
+        printf("The linked list is empty.\n");
+    } else {
+        printf("Not empty.\n");
+        return;
+    }
+}
+
+Box* addBox(Box *head){
+    int new_val;
+    Box *current = head; //?
+    printf("Input the next element in the linked list: ");
+    scanf("%d", &new_val);
+
+    if (current == NULL){ // if current is null
+        current = malloc(sizeof(Box)); // allocates it memory inits data to 0
+        current->data = new_val;
+        current->next = NULL; // the next pointer past the current box is set to null to terminate the list
+        return current; // return it so we are able to 
+    } else {
+        Box *temp = current;
+        while(temp->next!=NULL){ // while we aren't at the end of the list
+            temp = temp->next; // traverse through the ll
+        }
+
+        temp->next = malloc(sizeof(Box));
+        temp->next->data = new_val;
+        temp->next->next = NULL;
+        return current; // returning house keys
+    }
 }
 
 int main(void){
 
     // Probably the most verbose way to do this
     Box * head = NULL;
-    head = malloc(sizeof(Box));
-    head->data = 10;
-    head->next = malloc(sizeof(Box));
-    head->next->data = 5;
-    head->next->next = malloc(sizeof(Box));
-    head->next->next->data = 29;
-    head->next->next->next = NULL; // The end of the LL.
 
-    // Traversing the linked list
-    print(head);
-    printf("End.\n");
+    // Modular calls for the functions for this program
 
-    // Avoiding Memory leaks dangling pointers
-    free(head->next->next);
-    head->next->next = NULL;
-    free(head->next);
-    head->next = NULL;
-    free(head);
-    head = NULL;
+    int option;
+    int engine = 1;
+
 
 
     
+    while (engine){
+        printf("[0] isEmpty() [1] addBox() [2] print() [3] exit()\nll-options ~ "); // line rewrite
+        scanf("%d",&option);
+        switch(option){
+            case 0:
+                isEmpty(head);
+                break;
+            case 1:
+                head = addBox(head);
+                break;
+            case 2:
+                print(head);
+                break;
+            case 3:
+                fprintf(stdout,"\n/EXIT SUCCESSFUL/\n");
+                exit(1);
+        }
+    }
+
+
 
     return 0;
 

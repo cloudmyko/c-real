@@ -57,16 +57,35 @@ int main(void){
     // Probably the most verbose way to do this
     Box * head = NULL;
 
+    // Modular calls for the functions for this program
 
-    isEmpty(head);
-    head = addBox(head);
-    print(head);
-    isEmpty(head);
-    head = addBox(head);
-    print(head);
-    isEmpty(head);
-    head = addBox(head);
-    print(head);
+    int option;
+    int engine = 1;
+
+
+
+    
+    while (engine){
+        printf("\033[NA\r\033[2K[0] isEmpty() [1] addBox() [2] print() [3] exit()\nll-options ~ "); // line rewrite
+        scanf("%d",&option);
+        switch(option){
+            case 0:
+                isEmpty(head);
+                break;
+            case 1:
+                head = addBox(head);
+                break;
+            case 2:
+                print(head);
+                break;
+            case 3:
+                fprintf(stdout,"\n/EXIT SUCCESSFUL/\n");
+                exit(1);
+        }
+    }
+
+
+
     return 0;
 
 }

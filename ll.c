@@ -23,6 +23,7 @@ void isEmpty(Box *head){
     if (head == NULL){ // if the head is null that means there is no initial item containing data or a pointer.
         printf("The linked list is empty.\n");
     } else {
+        printf("Not empty.\n");
         return;
     }
 }
@@ -38,6 +39,16 @@ Box* addBox(Box *head){
         current->data = new_val;
         current->next = NULL;
         return current;
+    } else {
+        Box *temp = current;
+        while(temp!=NULL){
+            temp = temp->next;
+        }
+
+        temp = malloc(sizeof(Box));
+        temp->data = new_val;
+        temp->next = NULL;
+        return temp;
     }
 }
 
@@ -46,10 +57,13 @@ int main(void){
     // Probably the most verbose way to do this
     Box * head = NULL;
 
+
     isEmpty(head);
     head = addBox(head);
     print(head);
-    
+    isEmpty(head);
+    head->next = addBox(head);
+    print(head);
     return 0;
 
 }
